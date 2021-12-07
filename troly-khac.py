@@ -5,24 +5,37 @@ def speak(text):
     troly=pyttsx3.init()
     troly.say(text)
     troly.runAndWait()
-    print(text)
+    print('Assistant:',text)
 
 def get_audio():
     r = sr.Recognizer()
     with sr.Microphone() as source:
-        print("I'm listening ")
+        print("............")
         audio = r.listen(source, phrase_time_limit=5)
         try:
             text = r.recognize_google(audio)
+            print('Me:',text)
             return text
         except:
-            print("I cannot hear")
-            return 0
-
+            return 'user'
 def stop():
     speak("See you later!")
 
-speak('What is your name')
-name = get_audio()
-speak('Hello '+ name)
-stop()
+def assistant():
+    speak('What is your name')
+    name = get_audio()
+    speak('Hello ' +str(name))
+    speak('What can I help you?')
+    a=1
+    while a > 0:
+        text=get_audio()
+        if 'stop' in str(text) or 'bye' in str(text):
+            stop()
+            break
+        else:
+            speak('I can not understand')
+            stop()
+            break
+assistant()
+
+
