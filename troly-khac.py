@@ -32,10 +32,12 @@ def assistant():
         if 'stop' in str(text) or 'bye' in str(text):
             stop()
             break
-        else:
+        elif text=='user':#không nói gì tức là text=user
             speak('I can not understand')
             stop()
             break
+        else:
+            speak('I can not understand')
 assistant()
 
 
