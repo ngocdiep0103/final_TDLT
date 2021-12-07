@@ -16,8 +16,8 @@ def get_audio():
             text = r.recognize_google(audio)
             return text
         except:
-            print("I cannot hear")
-            return 0
+            speak("I cannot hear")
+            return get_audio()
 
 def stop():
     speak("See you later!")
