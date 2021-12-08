@@ -17,27 +17,35 @@ def get_audio():
             print('Me:',text)
             return text
         except:
-            return 'user'
+            return 0
+
+def get_text():
+    for i in range(3):
+        text = get_audio()
+        if text:
+            return text
+        elif i < 2:
+            speak("I can not understand, please repeat!")
+    return 'user'
+
 def stop():
     speak("See you later!")
 
 def assistant():
-    speak('What is your name')
-    name = get_audio()
+    speak('What is your name?')
+    name = get_text()
     speak('Hello ' +str(name))
     speak('What can I help you?')
-    a=1
-    while a > 0:
+    while True:
         text=get_audio()
-        if 'stop' in str(text) or 'bye' in str(text):
-            stop()
-            break
-        elif text=='user':#không nói gì tức là text=user
+        if not text:
             speak('I can not understand')
             stop()
             break
-        else:
-            speak('I can not understand')
+        elif 'stop' in str(text) or 'bye' in str(text):
+            stop()
+            break
+
 assistant()
 
 
