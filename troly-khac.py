@@ -24,7 +24,7 @@ def get_text():
         text = get_audio()
         if text:
             return text
-        elif i < 2:
+        elif i<2:
             speak("I can not understand, please repeat!")
     return 'user'
 
@@ -37,8 +37,8 @@ def assistant():
     speak('Hello ' +str(name))
     speak('What can I help you?')
     while True:
-        text=get_audio()
-        if not text:
+        text=get_text()
+        if text=='user':
             speak('I can not understand')
             stop()
             break
@@ -47,6 +47,3 @@ def assistant():
             break
 
 assistant()
-
-
-
