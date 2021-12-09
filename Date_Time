@@ -1,0 +1,17 @@
+from datetime import date, datetime
+
+def get_day():
+    today = date.today()
+    # Hàm strftime() trong Python trả về một chuỗi biểu diễn giá trị ngày, giờ và thời gian bằng cách sử dụng các đối tượng date, time và datetime.
+    d2 = today.strftime("%B %d, %Y")
+    print(d2)
+    return d2
+
+def get_time():
+    now = datetime.now()
+    time = now.strftime("%H hours %M minutes %S second")
+    print(time)
+    return time
+
+get_day()
+get_time()
