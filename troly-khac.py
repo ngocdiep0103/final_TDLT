@@ -11,7 +11,7 @@ def speak(text):
 def get_audio():
     r = sr.Recognizer()
     with sr.Microphone() as source:
-        print("Assitant: I am listening...")
+        print("Assistant: I am listening...")
         audio = r.listen(source, phrase_time_limit=5)
         try:
             text = r.recognize_google(audio)
