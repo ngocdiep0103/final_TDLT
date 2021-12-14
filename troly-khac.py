@@ -27,6 +27,8 @@ def get_text():
             return text
         elif i<2:
             speak("I can not understand, please repeat!")
+        elif i==2:
+            speak("I cannot understand")
     return 'user'
 
 def welcome():
@@ -61,7 +63,6 @@ def assistant():
     while True:
         text=get_text()
         if text=='user':
-            speak('I can not understand')
             stop()
             break
         elif 'time' in str(text):
